@@ -10,6 +10,7 @@ Yu, J. and M. B. Blaschko: Efficient Learning for Discriminative Segmentation wi
 (1) Dataset: 
 
 - This implementation uses the dataset provided by:
+- 
 V. Gulshan, C. Rother, A. Criminisi, A. Blake and A. Zisserman
 Geodesic Star Convexity for Interactive Image Segmentation, CVPR, 2010. 
 Run directly main.m first. It by defaut runs on a preprocessed and downsampled dataset "Sampled690.mat". 
@@ -26,9 +27,9 @@ Run directly main.m first. It by defaut runs on a preprocessed and downsampled d
 
 Download the dataset:
 
-Images: http://www.robots.ox.ac.uk/~vgg/data/iseg/data/images.tgz
-Ground truth: http://www.robots.ox.ac.uk/~vgg/data/iseg/data/images-gt.tgz
-Brush strokes: http://www.robots.ox.ac.uk/~vgg/data/iseg/data/images-labels.tgz
+- Images: http://www.robots.ox.ac.uk/~vgg/data/iseg/data/images.tgz
+- Ground truth: http://www.robots.ox.ac.uk/~vgg/data/iseg/data/images-gt.tgz
+- Brush strokes: http://www.robots.ox.ac.uk/~vgg/data/iseg/data/images-labels.tgz
 
 Add the dataset at "./generateUnary/Dataset/" respectively.
 run ./generateUnary/main.m and save the output X and Y.
@@ -49,6 +50,7 @@ via graph cuts. T-PAMI, 20(12):1222–1239, 2001.
 with superpixel neighborhoods. In ICCV, 2009.
 
 (3) Geodesic star convexity 
+
 V. Gulshan, C. Rother, A. Criminisi, A. Blake and A. Zisserman,
 Geodesic star convexity for interactive image segmentation. 
 In Proceedings of Conference on Vision and Pattern Recognition (CVPR 2010).
