@@ -36,7 +36,7 @@ run ./generateUnary/main.m and save the output X and Y.
 
 3. Reference
 
-This uses several third-party packages. Please consider citing :
+This uses several packages. Please consider citing :
 
 (1) SFO toolbox
 Andreas Krause. SFO: A toolbox for submodular function optimization. JMLR, 11:1141–1144, 2010.
@@ -55,6 +55,6 @@ V. Gulshan, C. Rother, A. Criminisi, A. Blake and A. Zisserman,
 Geodesic star convexity for interactive image segmentation. 
 In Proceedings of Conference on Vision and Pattern Recognition (CVPR 2010).
 
-
+Any questions please contact: jiaqian.yu@centralesupelec.fr
 --
 Jiaqian Yu @ 2016
