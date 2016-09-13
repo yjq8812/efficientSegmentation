@@ -13,17 +13,26 @@ This implementation uses the dataset provided by:
  
 V. Gulshan, C. Rother, A. Criminisi, A. Blake and A. Zisserman
 Geodesic Star Convexity for Interactive Image Segmentation, CVPR, 2010. 
+
 Run directly main.m first. It by defaut runs on a preprocessed and downsampled dataset "Sampled690.mat". 
 
-- One can change the dataset in mainInit.m in order to use the OriginalData.mat, which takes longer time.
+One can change the dataset in mainInit.m in order to use the OriginalData.mat, which takes longer time.
 
-(2) customer loss functions and its optimization:
+(2) main functions:
+
+-- main.m: overall running function;
+-- mainInit.m: parameter settings, load/prepare the data, splitting train/val/test, etc.;
+-- mainTrain.m: trainning cases, save trained weight vector;
+-- implement_SOSVM_Learning.m: SVM settings, callback functions;
+-- GeneralCalassifier_SOSVM.m: SVM oracle, cutting plane method;
+
+(3) customer loss functions and its optimization:
 
 (i) Define your loss function in customLossFunction.m following the specific format.
 
 (ii) Use your loss function in mainInit.m with the name your defined.
 
-(iii) '8connected' is the loss in the paper.
+(iii) '8connected' is the loss in our paper.
 
 - Rerun the prepocessing
 
@@ -37,9 +46,9 @@ Download the dataset:
 - Ground truth: http://www.robots.ox.ac.uk/~vgg/data/iseg/data/images-gt.tgz
 - Brush strokes: http://www.robots.ox.ac.uk/~vgg/data/iseg/data/images-labels.tgz
 
-(i)Add the dataset at "./generateUnary/Dataset/"; 
+(i) Add the dataset at "./generateUnary/Dataset/"; 
 
-(ii)run ./generateUnary/main.m and save the output X and Y.
+(ii) run ./generateUnary/main.m and save the output X and Y.
 
 Note: this processing can take very long time. 
 
