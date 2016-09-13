@@ -13,8 +13,7 @@ addpath(genpath('GCMex')); % http://vision.ucla.edu/~brian/gcmex.html
 
 load('Sampled690.mat','X','Y')
 % load('OriginalData.mat','X','Y')
-% load('orderFixed.mat','orderFixed')
-% order = orderFixed(order_num,:);
+
 order = randperm(length(X));
 X = X(order);
 Y = Y(order);
@@ -23,11 +22,20 @@ Ytrainval   = Y(1:ceil(2*length(order)./3));
 Xtest  = X(ceil(2*length(order)./3)+1:end);
 Ytest  = Y(ceil(2*length(order)./3)+1:end);
 
-Xtrain = Xtrainval(1:ceil(length(Xtrainval)/2));
-Ytrain = Ytrainval(1:ceil(length(Ytrainval)/2));
-Xval = Xtrainval(ceil(length(Xtrainval)/2)+1:end);
-Yval = Ytrainval(ceil(length(Xtrainval)/2)+1:end);
+crossValtime = 4;
+Xtrain = cell(crossValtime,1);
+Ytrain = cell(crossValtime,1);
+Xval = cell(crossValtime,1);
+Yval = cell(crossValtime,1);
+crossValInd = crossvalind('Kfold', length(Xtrainval), crossValtime);
 
+foldSize = ceil(length(Xtrainval)/crossValtime);
+for k = 1: crossValtime
+    Xtrain{k,1} = Xtrainval(crossValInd~=k);
+    Ytrain{k,1} = Ytrainval(crossValInd~=k);
+    Xval{k,1} = Xtrainval(crossValInd==k);
+    Yval{k,1} = Ytrainval(crossValInd==k);
+end
 % ------- Input Loss function, with their related optimization ------------%
 hamming = customLossFunction('Hamming'); % hamming loss
 ourloss = customLossFunction('8connected',gamma); % 8-connected loss

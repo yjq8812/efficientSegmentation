@@ -17,24 +17,32 @@ end
 if ~exist('gamma','var')
     gamma = 1;
 end
+
+% --------------- Problem Setting ---------------------%
+% ---- Prepare trainning/validation/testing data ------%
 mainInit;
 
 Cs = power(10,[-3:3]);
 if length(Cs)>2
     err_train = zeros(length(Cs),1);
-    for t = 1:length(Cs)
-        fprintf(['\n **  First training with C =  %f...  **  \n'], Cs(t));
+    
+    for k = 1: crossValtime
+    fprintf(['\n **  Cross-validation K =  %d...  **  \n'], Cs(k));
+    for iC = 1:length(Cs)
+        fprintf(['\n **  First training with C =  %f...  **  \n'], Cs(iC));
         
         %--------------------- SOSVM Parameters ----------------------%
-        C = Cs(t);
+        C = Cs(iC);
         
-        w_train = mainTrain(order_num,gamma,C,'train');
+        w_train = mainTrain(Xtrain{k},Ytrain{k},order_num,gamma,C,'train',ifuseDD,ifuseADMM,ADMMrho,ourloss,k);
         
-        [err_train(t),~] = testEvaluation(Xval,Yval,w_train,ourloss.function);
+        [errCross,~] = testEvaluation(Xval{k},Yval{k},w_train,ourloss.function);
+        
+        err_train(iC) = err_train(iC) + errCross;
         
     end
     fprintf('\n **  Done ! **  \n');
-    
+    end
     Cbest = Cs(find(err_train==min(err_train),1));
 else
     Cbest = Cs;
@@ -42,7 +50,7 @@ end
 % ---------------------- RE-TRAINING & TESTING-----------------------------%
 fprintf('\n **  Retraining on trainval set...  **  \n');
 
-w = mainTrain(order_num,gamma,Cbest,'retrain');
+w = mainTrain(Xtrainval,Ytrainval,order_num,gamma,Cbest,'retrain',ifuseDD,ifuseADMM,ADMMrho,ourloss);
 
 
 fprintf(['**  Testing...    \n']);
