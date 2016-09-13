@@ -20,11 +20,11 @@ One can change the dataset in mainInit.m in order to use the OriginalData.mat, w
 
 (2) main functions:
 
--- main.m: overall running function;
--- mainInit.m: parameter settings, load/prepare the data, splitting train/val/test, etc.;
--- mainTrain.m: trainning cases, save trained weight vector;
--- implement_SOSVM_Learning.m: SVM settings, callback functions;
--- GeneralCalassifier_SOSVM.m: SVM oracle, cutting plane method;
+- main.m: overall running function;
+- mainInit.m: parameter settings, load/prepare the data, splitting train/val/test, etc.;
+- mainTrain.m: trainning cases, save trained weight vector;
+- implement_SOSVM_Learning.m: SVM settings, callback functions;
+- GeneralCalassifier_SOSVM.m: SVM oracle, cutting plane method;
 
 (3) customer loss functions and its optimization:
 
