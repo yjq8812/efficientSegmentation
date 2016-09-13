@@ -55,6 +55,6 @@ V. Gulshan, C. Rother, A. Criminisi, A. Blake and A. Zisserman,
 Geodesic star convexity for interactive image segmentation. 
 In Proceedings of Conference on Vision and Pattern Recognition (CVPR 2010).
 
-Any questions please contact: jiaqian.yu@centralesupelec.fr
+Any questions please contact: jiaqian[dot]yu[at]centralesupelec[dot]fr
 --
 Jiaqian Yu @ 2016
