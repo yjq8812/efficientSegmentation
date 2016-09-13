@@ -25,6 +25,10 @@ Run directly main.m first. It by defaut runs on a preprocessed and downsampled d
 
 2. Rerun the prepocessing
 
+We followed the feature extraction procedure as in: 
+
+Anton Osokin and Pushmeet Kohli. Perceptually inspired layout-aware losses for image segmentation. In ECCV, 2014.
+
 Download the dataset:
 
 - Images: http://www.robots.ox.ac.uk/~vgg/data/iseg/data/images.tgz
