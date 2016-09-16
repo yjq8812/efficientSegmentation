@@ -27,7 +27,7 @@ if length(Cs)>2
     err_train = zeros(length(Cs),1);
     
     for k = 1: crossValtime
-    fprintf(['\n **  Cross-validation K =  %d...  **  \n'], Cs(k));
+    fprintf(['\n **  Cross-validation K =  %d...  **  \n'], k);
     for iC = 1:length(Cs)
         fprintf(['\n **  First training with C =  %f...  **  \n'], Cs(iC));
         
