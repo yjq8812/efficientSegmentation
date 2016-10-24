@@ -1,5 +1,4 @@
 function [w, model,iteration,parm]=implement_SOSVM_Learning(Xtrain,Ytrain,C,ifuseDD,ifuseADMM,ADMMrho,setfn)
-% last modification: 21-Apr-2015, function for ICCV2015 ADMM algo
 if ~exist('setfn','var')
     setfn.type = 'modular';
     setfn.function = @lossFunction;
